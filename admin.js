@@ -1,21 +1,21 @@
 // admin.js
 
-// Ensure that only authenticated admin users can access this page.
 firebase.auth().onAuthStateChanged(async function (user) {
   if (user) {
-    // Check if the logged-in user is an admin
+    console.log("User is logged in:", user.uid);
+    // Check if the logged in user is an admin
     const userRef = db.collection("user").doc(user.uid);
     const doc = await userRef.get();
     if (!doc.exists || doc.data().admin !== true) {
-      // Not an admin: sign out and redirect back to login.
+      console.warn("User is not an admin or admin data missing:", doc.data());
       await firebase.auth().signOut();
       window.location.href = "login.html";
     } else {
-      // If the user is an admin, fetch the enquiries.
+      console.log("User is admin. Fetching enquiries...");
       fetchEnquiries();
     }
   } else {
-    // No user logged in, redirect to login.
+    console.warn("No user logged in.");
     window.location.href = "login.html";
   }
 });
@@ -28,23 +28,35 @@ document.getElementById("signOutBtn").addEventListener("click", async function (
 
 // Function to fetch and display enquiries data
 function fetchEnquiries() {
-  // Listen for real-time updates on the enquiries collection,
-  // ordering by timestamp (latest first)
-  db.collection("enquiries").orderBy("timestamp", "desc")
-    .onSnapshot((snapshot) => {
-      const tableBody = document.querySelector("#enquiriesTable tbody");
-      tableBody.innerHTML = ""; // Clear existing rows
+  // Use ordering if you are sure every document has a timestamp
+  const enquiriesQuery = db.collection("enquiries").orderBy("timestamp", "desc");
+  
+  // If ordering is an issue (e.g., some docs missing timestamp), you can use:
+  // const enquiriesQuery = db.collection("enquiries");
 
+  enquiriesQuery.onSnapshot((snapshot) => {
+    console.log("Snapshot received. Document count:", snapshot.size);
+    const tableBody = document.querySelector("#enquiriesTable tbody");
+    tableBody.innerHTML = ""; // Clear existing rows
+
+    if (snapshot.empty) {
+      console.log("No enquiries found.");
+      tableBody.innerHTML = "<tr><td colspan='5'>No enquiries found.</td></tr>";
+    } else {
       snapshot.forEach(doc => {
         const enquiry = doc.data();
+        console.log("Enquiry doc:", enquiry); // Debug each document
+
         // Format the timestamp if it exists
         let timeStr = "";
         if (enquiry.timestamp) {
-          const date = enquiry.timestamp.toDate();
-          timeStr = date.toLocaleString();
+          try {
+            const date = enquiry.timestamp.toDate();
+            timeStr = date.toLocaleString();
+          } catch (err) {
+            console.error("Error formatting timestamp:", err);
+          }
         }
-
-        // Create a table row for this enquiry
         const row = `
           <tr>
             <td>${enquiry.studentName || ""}</td>
@@ -56,7 +68,8 @@ function fetchEnquiries() {
         `;
         tableBody.innerHTML += row;
       });
-    }, (error) => {
-      console.error("Error fetching enquiries: ", error);
-    });
+    }
+  }, (error) => {
+    console.error("Error fetching enquiries: ", error);
+  });
 }
