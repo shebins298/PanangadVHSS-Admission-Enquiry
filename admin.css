@@ -66,4 +66,54 @@ body {
     font-size: 14px;
     padding: 10px;
   }
+/* Table Container */
+#enquiriesSection {
+  margin-top: 20px;
+}
+
+/* Table Styling */
+#enquiriesTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 20px;
+}
+
+/* Table Header */
+#enquiriesTable th {
+  background-color: #0D47A1;  /* Deep Royal Blue */
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 2px solid #005bb5;
+}
+
+/* Table Cells */
+#enquiriesTable td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Zebra Striping for Rows */
+#enquiriesTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover Effects */
+#enquiriesTable tbody tr:hover {
+  background-color: #e0f7fa;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive adjustments if needed */
+@media screen and (max-width: 600px) {
+  #enquiriesTable th, #enquiriesTable td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+}
+
+
+  
 }
