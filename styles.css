@@ -19,44 +19,52 @@ body {
     animation: fadeIn 1.2s ease-in-out;
 }
 
-/* Logo */
-.logo {
-    width: 100px;
-    margin-bottom: 10px;
-}
-
-/* Header */
+/* Header (Improved Design) */
 header {
-    background: #0D47A1;
+    background: linear-gradient(135deg, #1565C0, #1E88E5);
     color: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px 10px 0 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 header h1 {
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 header p {
     font-size: 14px;
-    opacity: 0.8;
+    opacity: 0.9;
+    font-style: italic;
 }
 
 /* Form */
 .form-container {
     padding: 20px;
+    text-align: left; /* Align labels properly */
 }
 
-.form-container h2 {
-    color: #0D47A1;
-    margin-bottom: 15px;
+/* Improved Label Alignment */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
 }
 
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1565C0;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
 input, select {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
