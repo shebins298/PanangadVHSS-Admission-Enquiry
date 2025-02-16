@@ -1,0 +1,69 @@
+/* admin.css */
+
+/* Reset & Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Container for the admin panel */
+.admin-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Admin heading styles */
+.admin-container h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #007aff;
+}
+.admin-container p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Sign Out Button */
+#signOutBtn {
+  background: #007aff;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#signOutBtn:hover {
+  background: #005bb5;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .admin-container {
+    margin: 20px auto;
+    padding: 16px;
+  }
+  .admin-container h1 {
+    font-size: 20px;
+  }
+  #signOutBtn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
