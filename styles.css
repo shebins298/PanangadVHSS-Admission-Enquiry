@@ -132,3 +132,15 @@ footer a:hover {
     margin: 0 auto 10px;
     /* Center and add bottom spacing */
 }
+
+/* Tagline Styling */
+.tagline {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    /* Soft white */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
