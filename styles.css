@@ -133,14 +133,14 @@ footer a:hover {
     /* Center and add bottom spacing */
 }
 
-/* Tagline Styling */
+/* Tagline Styling - Smaller & Elegant */
 .tagline {
-    font-size: 16px;
+    font-size: 14px; /* Reduced size */
     font-style: italic;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.85);
-    /* Soft white */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.85); /* Soft white */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.8px; /* Slight spacing for readability */
     margin-top: 5px;
 }
+
