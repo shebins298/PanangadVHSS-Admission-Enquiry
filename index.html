@@ -16,12 +16,13 @@
 
       <div class="form-container">
         <h2>Admission Enquiry</h2>
-        <form>
+        <form id="enquiryForm">
           <label for="name">Student's Name</label>
-          <input type="text" id="name" placeholder="Enter full name" />
+          <input type="text" id="name" placeholder="Enter full name" required />
 
           <label for="class">Class Applying For</label>
-          <select id="class">
+          <select id="class" required>
+            <option value="">-- Select Class --</option>
             <option>LKG</option>
             <option>UKG</option>
             <option>Class 1</option>
@@ -38,22 +39,34 @@
           </select>
 
           <label for="parent">Parent's Name</label>
-          <input type="text" id="parent" placeholder="Enter parent's name" />
+          <input type="text" id="parent" placeholder="Enter parent's name" required />
 
           <label for="phone">Parent's Contact Number</label>
-          <input type="text" id="phone" placeholder="Enter phone number" />
+          <input type="text" id="phone" placeholder="Enter phone number" required />
 
           <button type="submit">Submit Enquiry</button>
         </form>
       </div>
 
       <footer>
-        <p>Visit our website: <a href="https://www.panangadvhss.com">www.panangadvhss.com</a></p>
         <p>
-          Follow us: <a href="https://www.facebook.com/panangadvhss">Facebook</a> | <a href="https://www.instagram.com/panangadvhss">Instagram</a> |
-          
+          Visit our website: 
+          <a href="https://www.panangadvhss.com" target="_blank">www.panangadvhss.com</a>
+        </p>
+        <p>
+          Follow us: 
+          <a href="https://www.facebook.com/panangadvhss" target="_blank">Facebook</a> | 
+          <a href="https://www.instagram.com/panangadvhss" target="_blank">Instagram</a>
         </p>
       </footer>
     </div>
+
+    <!-- Firebase Compat Libraries -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore-compat.js"></script>
+    <!-- Your Firebase configuration -->
+    <script src="firebase-config.js"></script>
+    <!-- Your custom script -->
+    <script src="script.js"></script>
   </body>
 </html>
